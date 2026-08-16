@@ -1,157 +1,259 @@
 <div align="center">
 
-🗂️ Sistema de Gerenciamento de Usuários
-Sistema desktop em Java para cadastro, consulta, alteração e exclusão de usuários, com autenticação via login
-Análise e Desenvolvimento de Sistemas (ADS) | Projeto Acadêmico | 2026
+# 🗂️ Sistema de Gerenciamento de Usuários
+
+### Aplicação desktop desenvolvida em Java para autenticação e gerenciamento de usuários
+
+**Projeto acadêmico | Análise e Desenvolvimento de Sistemas (ADS) | 2026**
 
 </div>
 
-📌 Sobre o projeto
-O Sistema de Gerenciamento de Usuários é uma aplicação desktop desenvolvida em Java, utilizando Java Swing para a interface gráfica e Apache NetBeans como ambiente de desenvolvimento.
+---
 
-O sistema foi criado como projeto acadêmico com o objetivo de aplicar, na prática, conceitos de programação orientada a objetos, construção de interfaces gráficas, lógica de autenticação e integração de uma aplicação Java com um banco de dados relacional.
+## 📌 Sobre o projeto
 
-O projeto simula um cenário comum em sistemas corporativos: o controle de acesso e o gerenciamento de usuários por meio de operações de CRUD (Create, Read, Update, Delete), precedidas por uma tela de login.
+O **Sistema de Gerenciamento de Usuários** é uma aplicação desktop desenvolvida em **Java**, utilizando **Java Swing** para a construção das telas e **Apache NetBeans** como ambiente de desenvolvimento.
 
-🎯 Objetivo
-Desenvolver um sistema funcional que demonstre, na prática, habilidades em:
+O projeto foi criado com finalidade acadêmica para aplicar conhecimentos de programação, desenvolvimento de interfaces gráficas, conexão com banco de dados e operações de CRUD.
 
-Programação orientada a objetos em Java;
+A aplicação possui uma tela de login para autenticação e um menu principal que permite acessar as funcionalidades de gerenciamento de usuários.
 
-Construção de interfaces gráficas com Java Swing;
+O sistema foi desenvolvido para funcionar com um banco de dados **MySQL local**, utilizando conexão JDBC.
 
-Autenticação de usuários por meio de tela de login;
+---
 
-Operações completas de CRUD (cadastrar, consultar, alterar e excluir);
+## 🎯 Objetivo
 
-Conexão de uma aplicação Java com um banco de dados MySQL via JDBC;
+Desenvolver um sistema funcional de gerenciamento de usuários, aplicando na prática conceitos de desenvolvimento desktop e persistência de dados.
 
-Organização de um projeto Java dentro do ambiente NetBeans;
+A proposta do projeto é oferecer:
 
-Versionamento de código com Git e publicação em repositório no GitHub.
+- Validação do acesso de usuários por meio de login;
+- Cadastro de novos usuários;
+- Consulta de usuários cadastrados;
+- Alteração de informações existentes;
+- Exclusão de usuários;
+- Organização das operações em uma interface gráfica simples;
+- Armazenamento dos dados em um banco MySQL local.
 
-Mais do que apenas um sistema funcional, o projeto representa uma etapa de aprendizado prático sobre como uma aplicação desktop se conecta a um banco de dados e gerencia informações de usuários de forma estruturada.
+O projeto também representa uma etapa importante de aprendizado sobre a integração entre uma interface desenvolvida em Java e um banco de dados relacional.
 
-🧩 Funcionalidades
-O sistema conta com as seguintes telas e funcionalidades:
+---
 
-Tela de Login: autenticação do usuário por código e senha, validados diretamente no banco de dados;
+## 🔐 Tela de login
 
-Tela de Menu: ponto central de navegação entre as funcionalidades do sistema;
+O sistema começa pela tela de login, na qual o usuário informa:
 
-Cadastrar usuário: inclusão de novos registros no banco de dados;
+- **UserID:** código de identificação cadastrado no banco;
+- **Senha:** senha correspondente ao usuário.
 
-Consultar usuário: busca e visualização de usuários já cadastrados;
+Após clicar em **OK**, o sistema consulta a tabela `usuarios` no MySQL local. Quando os dados estão corretos, o acesso é liberado e o usuário é encaminhado para o menu principal.
 
-Alterar usuário: edição das informações de um usuário existente;
+A tela também possui as opções:
 
-Excluir usuário: remoção de um registro do banco de dados.
+- **Limpar:** apaga os dados preenchidos nos campos;
+- **Fim:** encerra a aplicação;
+- **OK:** valida o login e abre o sistema.
 
-Cada uma dessas telas foi desenvolvida como um JFrame no NetBeans, utilizando o GUI Builder (Matisse), o que gera, para cada tela, um arquivo .java (lógica) e um arquivo .form (layout visual).
+---
 
-🗄️ Banco de Dados (MySQL)
-O sistema utiliza o MySQL como banco de dados relacional, acessado por meio da API JDBC (Java Database Connectivity) com o driver MySQL Connector/J.
+## 🧩 Funcionalidades
 
-A conexão é estabelecida através da classe responsável pelo acesso ao banco, utilizando uma URL no formato:
+### Menu principal
 
-java
+O menu principal organiza o acesso às operações disponíveis no sistema.
+
+### Cadastro de usuários
+
+Permite inserir novos usuários no banco de dados, armazenando as informações necessárias para o acesso ao sistema.
+
+### Consulta de usuários
+
+Permite localizar e visualizar informações de usuários cadastrados.
+
+### Alteração de usuários
+
+Permite modificar dados de um usuário existente.
+
+### Exclusão de usuários
+
+Permite remover um usuário cadastrado no banco de dados.
+
+---
+
+## 🗄️ Banco de dados MySQL
+
+O sistema utiliza o **MySQL** para armazenar os dados dos usuários e realizar as operações de cadastro, consulta, alteração, exclusão e autenticação.
+
+A comunicação entre o Java e o MySQL é feita por meio do **JDBC**, utilizando o driver **MySQL Connector/J**.
+
+A conexão utilizada no projeto aponta para um banco local:
+
+```java
 jdbc:mysql://localhost:3306/sistema_usuarios
-Isso significa que o sistema busca o banco de dados localmente, no computador de quem estiver executando a aplicação. O projeto não disponibiliza nem depende de um banco de dados remoto: cada pessoa que for executar o sistema deve configurar seu próprio ambiente MySQL local.
+```
 
-O que é necessário para rodar o sistema
-Para executar o projeto corretamente, é preciso:
+Isso significa que a aplicação procura o banco no próprio computador em que está sendo executada.
 
-Ter o MySQL Server instalado e em execução;
+### Importante
 
-Criar um banco de dados chamado sistema_usuarios;
+O projeto **não utiliza banco remoto** e não disponibiliza acesso ao banco da autora. Cada pessoa que quiser executar o sistema deverá configurar seu próprio ambiente local.
 
-Criar a tabela usuarios, contendo, no mínimo, as colunas de código e senha utilizadas na autenticação;
+Para executar o projeto, será necessário:
 
-Cadastrar manualmente ao menos um usuário nessa tabela para conseguir realizar login;
+1. Instalar o MySQL Server;
+2. Iniciar o serviço do MySQL;
+3. Criar um banco chamado `sistema_usuarios`;
+4. Criar a tabela `usuarios`;
+5. Criar os demais objetos necessários para as operações do CRUD;
+6. Cadastrar pelo menos um usuário na tabela de login;
+7. Configurar o MySQL Connector/J no projeto;
+8. Ajustar as credenciais da conexão caso sejam diferentes da instalação local.
 
-Ter o driver MySQL Connector/J configurado nas bibliotecas do projeto no NetBeans;
+Os dados utilizados no desenvolvimento são fictícios e foram criados exclusivamente para testes acadêmicos.
 
-Ajustar, se necessário, o usuário e a senha de conexão utilizados no código para que correspondam à configuração do seu MySQL local.
+---
 
-Observação importante
-As credenciais de conexão presentes no código (usuário e senha do MySQL) são referentes a um ambiente local de desenvolvimento acadêmico e não representam acesso a nenhum banco de dados remoto ou pessoal. Nenhum dado real de usuários é utilizado no projeto — todos os registros são fictícios e criados apenas para fins de teste e demonstração.
+## 💻 Tecnologias utilizadas
 
-Por não haver um banco de dados hospedado remotamente, é necessário que cada pessoa configure seu próprio MySQL local para conseguir executar o sistema e acessar a tela de login.
+- **Java** — linguagem de programação;
+- **Java Swing** — criação das interfaces gráficas;
+- **Apache NetBeans** — IDE e ferramenta de construção visual das telas;
+- **JDBC** — comunicação entre a aplicação e o banco;
+- **MySQL** — banco de dados relacional;
+- **MySQL Connector/J** — driver JDBC;
+- **Git** — controle de versão;
+- **GitHub** — hospedagem do código-fonte.
 
-💻 Tecnologias utilizadas
-Java — linguagem de programação principal;
+---
 
-Java Swing — construção da interface gráfica desktop;
+## 📁 Estrutura do projeto
 
-Apache NetBeans — ambiente de desenvolvimento (IDE) e GUI Builder;
-
-JDBC — conexão entre a aplicação Java e o banco de dados;
-
-MySQL — sistema gerenciador de banco de dados relacional;
-
-Git e GitHub — controle de versão e hospedagem do código-fonte.
-
-📁 Estrutura do projeto
-text
+```text
 STO_E01/
 ├── src/
-│   ├── FrameLogin.java / .form
-│   ├── FrameMenu.java / .form
-│   ├── FrameIncluir.java / .form
-│   ├── FrameConsultar.java / .form
-│   ├── FrameAlterar.java / .form
-│   ├── FrameExcluir.java / .form
-│   └── (demais classes e imagens da interface)
+│   ├── FrameLogin.java
+│   ├── FrameLogin.form
+│   ├── FrameMenu.java
+│   ├── FrameMenu.form
+│   ├── FrameIncluir.java
+│   ├── FrameIncluir.form
+│   ├── FrameConsultar.java
+│   ├── FrameConsultar.form
+│   ├── FrameAlterar.java
+│   ├── FrameAlterar.form
+│   ├── FrameExcluir.java
+│   ├── FrameExcluir.form
+│   └── imagens da interface
 ├── nbproject/
 ├── build.xml
 ├── manifest.mf
 ├── .gitignore
 └── README.md
-▶️ Como executar o projeto
-Clone este repositório:
+```
 
-bash
+Os arquivos `.java` contêm a lógica das telas, enquanto os arquivos `.form` armazenam as informações visuais utilizadas pelo GUI Builder do NetBeans.
+
+---
+
+## ▶️ Como executar o projeto
+
+1. Instale o **Java JDK**.
+2. Instale o **Apache NetBeans**.
+3. Instale o **MySQL Server**.
+4. Instale ou adicione o **MySQL Connector/J** ao projeto.
+5. Crie o banco de dados `sistema_usuarios`.
+6. Crie as tabelas necessárias para o login e para o CRUD.
+7. Cadastre um usuário no banco de dados.
+8. Clone este repositório:
+
+```bash
 git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
-Abra o projeto no Apache NetBeans.
+```
 
-Instale e inicie o MySQL no seu computador.
+9. Abra o projeto `STO_E01` no NetBeans.
+10. Verifique as configurações da conexão com o MySQL.
+11. Execute a classe `FrameLogin`.
+12. Informe o código e a senha de um usuário cadastrado no seu banco local.
 
-Crie o banco de dados sistema_usuarios.
+---
 
-Crie a tabela usuarios com as colunas utilizadas pelo sistema (código e senha, no mínimo).
+## 🧪 Testes realizados
 
-Cadastre um usuário de teste diretamente no banco, para conseguir acessar a tela de login.
+Durante o desenvolvimento, foram realizados testes locais para verificar:
 
-Verifique se o driver MySQL Connector/J está adicionado às bibliotecas do projeto.
+- A abertura correta da tela de login;
+- A validação de usuário existente;
+- A validação de senha;
+- O bloqueio de usuários inexistentes;
+- A abertura do menu após o login;
+- O cadastro de novos usuários;
+- A consulta de registros;
+- A alteração de informações;
+- A exclusão de usuários;
+- A comunicação entre a aplicação Java e o MySQL.
 
-Ajuste o usuário e a senha de conexão no código, caso sejam diferentes da sua instalação local do MySQL.
+Todos os dados utilizados nos testes são fictícios e não representam usuários reais.
 
-Execute o projeto a partir da classe FrameLogin.
+---
 
-Faça login com o usuário cadastrado e navegue pelas funcionalidades de cadastro, consulta, alteração e exclusão.
+## 📚 Aprendizados
 
-📚 Aprendizados
-Este projeto proporcionou aprendizado prático sobre como uma aplicação desktop em Java se conecta a um banco de dados relacional e gerencia informações por meio de operações de CRUD.
+O desenvolvimento deste projeto permitiu praticar diferentes etapas da construção de uma aplicação desktop.
 
-Foi possível compreender, na prática, conceitos como:
+Entre os principais aprendizados estão:
 
-A importância de separar a lógica de conexão do restante do sistema;
+- Criação de interfaces com Java Swing;
+- Uso do GUI Builder do NetBeans;
+- Organização de telas por meio de `JFrame`;
+- Implementação de eventos de botões;
+- Validação de campos de formulário;
+- Criação de consultas SQL;
+- Conexão Java com MySQL utilizando JDBC;
+- Implementação de operações de CRUD;
+- Controle de acesso por login;
+- Organização de um projeto para publicação no GitHub.
 
-Como o Java Swing organiza componentes visuais em JFrames e Panels;
+O projeto reforçou a importância de integrar interface, lógica de programação e banco de dados para construir uma aplicação funcional.
 
-Como o JDBC estabelece comunicação entre a aplicação e o MySQL;
+---
 
-A relevância de validar corretamente as credenciais do usuário durante o login;
+## 🚀 Possíveis melhorias futuras
 
-Como funciona o versionamento de código com Git e a publicação de um projeto no GitHub.
+Algumas melhorias que podem ser implementadas em versões futuras são:
 
-Mais do que apenas implementar telas e comandos SQL, o projeto reforçou a importância de compreender o fluxo completo de uma aplicação: da interface gráfica até a persistência dos dados no banco.
+- Utilização de `PreparedStatement` nas consultas SQL;
+- Criptografia ou hash das senhas;
+- Criação de diferentes níveis de acesso;
+- Validação mais completa dos campos;
+- Separação da classe de conexão em um pacote próprio;
+- Melhor organização dos pacotes Java;
+- Inclusão de mensagens de erro mais específicas;
+- Criação de um script SQL para facilitar a configuração do banco;
+- Adição de testes automatizados;
+- Desenvolvimento de uma versão web ou mobile.
 
-👩‍💻 Autoria
+---
+
+## ⚠️ Observações
+
+Este projeto foi desenvolvido para fins acadêmicos e de aprendizagem.
+
+As credenciais presentes na conexão referem-se a um ambiente local utilizado durante o desenvolvimento. O projeto não oferece acesso a banco de dados remoto.
+
+Para executar a aplicação, cada pessoa deve instalar e configurar seu próprio MySQL, criar o banco e cadastrar seus próprios usuários.
+
+Não são utilizados dados reais de pessoas.
+
+---
+
+## 👩‍💻 Autoria
+
 Projeto desenvolvido por:
 
-Carolina Yukari Kague
-Análise e Desenvolvimento de Sistemas (ADS)
-2026
+### Carolina Yukari Kague
+
+**Análise e Desenvolvimento de Sistemas (ADS)**  
+**2026**
 
 </div>

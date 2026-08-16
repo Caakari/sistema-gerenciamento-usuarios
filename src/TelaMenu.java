@@ -2,14 +2,14 @@ import java.sql.*;
 
 import static javax.swing.JOptionPane.*; 
 
-public class FrameMenu extends javax.swing.JFrame {
+public class TelaMenu extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMenu.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaMenu.class.getName());
 
     /**
      * Creates new form FrameMenu
      */
-    public FrameMenu() {
+    public TelaMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
      
@@ -234,7 +234,7 @@ public class FrameMenu extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // MENU CONSULTAR
         
-        new FrameConsultar().setVisible(true);
+        new TelaConsultar().setVisible(true);
         dispose();
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -242,7 +242,7 @@ public class FrameMenu extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // MENU INCLUIR
         
-        new FrameIncluir().setVisible(true);
+        new TelaIncluir().setVisible(true);
         dispose();
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -250,7 +250,7 @@ public class FrameMenu extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // MENU ALTERAR
         
-         new FrameAlterar().setVisible(true);
+         new TelaAlterar().setVisible(true);
          dispose();
          
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -258,7 +258,7 @@ public class FrameMenu extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // MENU EXCLUIR
         
-        new FrameExcluir().setVisible(true);
+        new TelaExcluir().setVisible(true);
         dispose();
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
@@ -266,7 +266,7 @@ public class FrameMenu extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // BOTAO SAIR 
 
-        new FrameLogin().setVisible(true); 
+        new TelaLogin().setVisible(true); 
         dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
@@ -292,7 +292,7 @@ public class FrameMenu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrameMenu().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaMenu().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

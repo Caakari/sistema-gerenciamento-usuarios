@@ -2,12 +2,12 @@ import java.sql.*;
 
 import static javax.swing.JOptionPane.*; 
 
-public class FrameIncluir extends javax.swing.JFrame {
+public class TelaIncluir extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameIncluir.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaIncluir.class.getName());
 
   
-    public FrameIncluir() {
+    public TelaIncluir() {
         initComponents();
 
           this.setLocationRelativeTo(null);
@@ -392,7 +392,7 @@ public class FrameIncluir extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTAO FIM
         
-        new FrameMenu().setVisible(true);
+        new TelaMenu().setVisible(true);
           
         dispose();
         
@@ -569,7 +569,7 @@ public class FrameIncluir extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrameIncluir().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaIncluir().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -3,11 +3,11 @@ import java.sql.*;
 import static javax.swing.JOptionPane.*; 
 
   
-public class FrameConsultar extends javax.swing.JFrame {
+public class TelaConsultar extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameConsultar.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaConsultar.class.getName());
     
-    public FrameConsultar() {
+    public TelaConsultar() {
         initComponents();
         
           this.setLocationRelativeTo(null);
@@ -130,9 +130,8 @@ public class FrameConsultar extends javax.swing.JFrame {
         jLabel18.setText("Digite o UserID para carregar os dados automaticamente");
         jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ooiii.png"))); // NOI18N
-        jLabel19.setText("jLabel6");
-        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 16, 40, -1));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lupa.png"))); // NOI18N
+        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(243, 240, 242));
 
@@ -154,7 +153,7 @@ public class FrameConsultar extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(145, 88, 123));
         jLabel10.setText("Segurança");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cadeadaaaao (1).png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cadeado 2.png"))); // NOI18N
         jLabel11.setText("jLabel6");
 
         jPanel4.setBackground(new java.awt.Color(247, 238, 245));
@@ -600,7 +599,7 @@ public class FrameConsultar extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTAO FIM
         
-        new FrameMenu().setVisible(true);
+        new TelaMenu().setVisible(true);
         
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -646,7 +645,7 @@ public class FrameConsultar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrameConsultar().setVisible(true)); }
+        java.awt.EventQueue.invokeLater(() -> new TelaConsultar().setVisible(true)); }
 
 
 

@@ -4,11 +4,11 @@ import java.sql.*;
 import static javax.swing.JOptionPane.*; 
 
 
-public class FrameLogin extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameLogin.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
 
-    public FrameLogin() {
+    public TelaLogin() {
         initComponents();
        
           this.setLocationRelativeTo(null);
@@ -247,7 +247,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     
                     showMessageDialog(null, "Login realizado com sucesso!", "Sucesso", 1);
 
-                    new FrameMenu().setVisible(true); 
+                    new TelaMenu().setVisible(true); 
 
                     dispose();} 
 
@@ -305,7 +305,7 @@ public class FrameLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrameLogin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

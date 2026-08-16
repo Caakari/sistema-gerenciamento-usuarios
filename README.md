@@ -44,10 +44,10 @@ O projeto também representa uma etapa importante de aprendizado sobre a integra
 
 O sistema começa pela tela de login, na qual o usuário informa:
 
-- **UserID:** código de identificação cadastrado no banco;
+- **UserID:** código numérico de identificação cadastrado no banco;
 - **Senha:** senha correspondente ao usuário.
 
-Após clicar em **OK**, o sistema consulta a tabela `usuarios` no MySQL local. Quando os dados estão corretos, o acesso é liberado e o usuário é encaminhado para a tela `TelaMenu`.
+Após clicar em **OK**, o sistema consulta a tabela `usuarios` no MySQL local buscando a equivalência exata dos dados informados. Quando os dados estão corretos, o acesso é liberado, uma mensagem de sucesso é exibida e o usuário é encaminhado para a `TelaMenu`.
 
 A tela também possui as opções:
 
@@ -61,215 +61,35 @@ A tela também possui as opções:
 
 ### Tela Menu
 
-A `TelaMenu` organiza o acesso às operações disponíveis no sistema.
+A `TelaMenu` organiza o acesso às operações disponíveis no sistema por meio de uma barra de menus superior contendo as guias "Usuário" (Consultar, Incluir, Alterar, Excluir) e "..." (Sair).
 
 ### Cadastro de usuários
 
-A `TelaIncluir` permite inserir novos usuários no banco de dados, armazenando as informações necessárias para o acesso ao sistema.
+A `TelaIncluir` permite inserir novos usuários no banco de dados. O formulário solicita **Nome Completo**, **E-mail**, **Telefone** e **Senha**. O sistema conta com validações que exigem a confirmação exata da senha e garantem que o telefone contenha apenas números, limitados a 11 dígitos. Após o cadastro bem-sucedido, o `UserID` é gerado de forma automática e exibido na tela para o usuário.
 
 ### Consulta de usuários
 
-A `TelaConsultar` permite localizar e visualizar informações de usuários cadastrados.
+A `TelaConsultar` permite localizar as informações dos usuários cadastrados por meio de uma busca utilizando o `UserID`. Os dados retornados (Nome, E-mail, Telefone e Senha) são carregados automaticamente em campos bloqueados para edição.
 
 ### Alteração de usuários
 
-A `TelaAlterar` permite modificar dados de um usuário existente.
+A `TelaAlterar` busca o registro pelo `UserID` e habilita a modificação dos campos Nome, E-mail, Telefone e Senha. O campo de `UserID` possui um bloqueio de segurança estrutural, impedindo que o código identificador seja modificado[cite: 1]. O formulário também valida se o número de telefone possui apenas caracteres numéricos antes de autorizar a atualização no banco de dados[cite: 1].
 
 ### Exclusão de usuários
 
-A `TelaExcluir` permite remover um usuário cadastrado no banco de dados.
+A `TelaExcluir` localiza um cadastro pelo `UserID` e exibe seus dados para visualização[cite: 1]. Ao solicitar a exclusão, o sistema exibe uma caixa de diálogo exigindo a confirmação do usuário antes de remover o registro permanentemente do banco de dados[cite: 1].
 
 ---
 
 ## 🗄️ Banco de dados MySQL
 
-O sistema utiliza o **MySQL** para armazenar os dados dos usuários e realizar as operações de cadastro, consulta, alteração, exclusão e autenticação.
+O sistema utiliza o **MySQL** para armazenar os dados dos usuários e realizar as operações de cadastro, consulta, alteração, exclusão e autenticação[cite: 1].
 
 A comunicação entre o Java e o MySQL é feita por meio do **JDBC**, utilizando o driver **MySQL Connector/J**.
 
-A conexão utilizada no projeto aponta para um banco local:
+A conexão utilizada no projeto aponta para um banco local com as seguintes credenciais padrão definidas no código[cite: 1]:
 
 ```java
 jdbc:mysql://localhost:3306/sistema_usuarios
-```
-
-Isso significa que a aplicação procura o banco no próprio computador em que está sendo executada.
-
-### Importante
-
-O projeto **não utiliza banco remoto** e não disponibiliza acesso ao banco da autora. Cada pessoa que quiser executar o sistema deverá configurar seu próprio ambiente local.
-
-Para executar o projeto, será necessário:
-
-1. Instalar o MySQL Server;
-2. Iniciar o serviço do MySQL;
-3. Criar um banco chamado `sistema_usuarios`;
-4. Criar a tabela `usuarios`;
-5. Criar os demais objetos necessários para as operações do CRUD;
-6. Cadastrar pelo menos um usuário na tabela de login;
-7. Configurar o MySQL Connector/J no projeto;
-8. Ajustar as credenciais da conexão caso sejam diferentes da instalação local.
-
-Os dados utilizados no desenvolvimento são fictícios e foram criados exclusivamente para testes acadêmicos.
-
----
-
-## 💻 Tecnologias utilizadas
-
-- **Java** — linguagem de programação;
-- **Java Swing** — criação das interfaces gráficas;
-- **Apache NetBeans** — IDE e ferramenta de construção visual das telas;
-- **JDBC** — comunicação entre a aplicação e o banco;
-- **MySQL** — banco de dados relacional;
-- **MySQL Connector/J** — driver JDBC;
-- **Git** — controle de versão;
-- **GitHub** — hospedagem do código-fonte.
-
----
-
-## 📁 Estrutura do projeto
-
-```text
-STO_E01/
-├── src/
-│   ├── TelaLogin.java
-│   ├── TelaLogin.form
-│   ├── TelaMenu.java
-│   ├── TelaMenu.form
-│   ├── TelaIncluir.java
-│   ├── TelaIncluir.form
-│   ├── TelaConsultar.java
-│   ├── TelaConsultar.form
-│   ├── TelaAlterar.java
-│   ├── TelaAlterar.form
-│   ├── TelaExcluir.java
-│   ├── TelaExcluir.form
-│   └── imagens utilizadas na interface
-├── nbproject/
-├── build.xml
-├── manifest.mf
-├── .gitignore
-└── README.md
-```
-
-As telas do sistema foram desenvolvidas como formulários `JFrame` no Apache NetBeans.
-
-Cada tela possui dois arquivos principais:
-
-- O arquivo `.java`, que contém a lógica e o código da tela;
-- O arquivo `.form`, que armazena as informações visuais utilizadas pelo GUI Builder do NetBeans.
-
-As telas principais do projeto são:
-
-- `TelaLogin`: autenticação do usuário;
-- `TelaMenu`: menu principal do sistema;
-- `TelaIncluir`: cadastro de usuários;
-- `TelaConsultar`: consulta de usuários;
-- `TelaAlterar`: alteração de usuários;
-- `TelaExcluir`: exclusão de usuários.
-
-A classe `TelaLogin.java` também contém o método `main`, responsável por iniciar a aplicação.
-
----
-
-## ▶️ Como executar o projeto
-
-1. Instale o **Java JDK**.
-2. Instale o **Apache NetBeans**.
-3. Instale o **MySQL Server**.
-4. Instale ou adicione o **MySQL Connector/J** ao projeto.
-5. Crie o banco de dados `sistema_usuarios`.
-6. Crie as tabelas necessárias para o login e para o CRUD.
-7. Cadastre um usuário no banco de dados.
-8. Clone este repositório:
-
-```bash
-git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
-```
-
-9. Abra o projeto `STO_E01` no NetBeans.
-10. Verifique as configurações da conexão com o MySQL.
-11. Execute a classe `TelaLogin`.
-12. Informe o código e a senha de um usuário cadastrado no seu banco local.
-
----
-
-## 🧪 Testes realizados
-
-Durante o desenvolvimento, foram realizados testes locais para verificar:
-
-- A abertura correta da tela de login;
-- A validação de usuário existente;
-- A validação de senha;
-- O bloqueio de usuários inexistentes;
-- A abertura do menu após o login;
-- O cadastro de novos usuários;
-- A consulta de registros;
-- A alteração de informações;
-- A exclusão de usuários;
-- A comunicação entre a aplicação Java e o MySQL.
-
-Todos os dados utilizados nos testes são fictícios e não representam usuários reais.
-
----
-
-## 📚 Aprendizados
-
-O desenvolvimento deste projeto permitiu praticar diferentes etapas da construção de uma aplicação desktop.
-
-Entre os principais aprendizados estão:
-
-- Criação de interfaces com Java Swing;
-- Uso do GUI Builder do NetBeans;
-- Organização de telas por meio de `JFrame`;
-- Implementação de eventos de botões;
-- Validação de campos de formulário;
-- Criação de consultas SQL;
-- Conexão Java com MySQL utilizando JDBC;
-- Implementação de operações de CRUD;
-- Controle de acesso por login;
-- Organização de um projeto para publicação no GitHub.
-
-O projeto reforçou a importância de integrar interface, lógica de programação e banco de dados para construir uma aplicação funcional.
-
----
-
-## 🚀 Possíveis melhorias futuras
-
-Algumas melhorias que podem ser implementadas em versões futuras são:
-
-- Utilização de `PreparedStatement` nas consultas SQL;
-- Criptografia ou hash das senhas;
-- Criação de diferentes níveis de acesso;
-- Validação mais completa dos campos;
-- Separação da classe de conexão em um pacote próprio;
-- Melhor organização dos pacotes Java;
-- Inclusão de mensagens de erro mais específicas;
-- Criação de um script SQL para facilitar a configuração do banco;
-- Adição de testes automatizados;
-- Desenvolvimento de uma versão web ou mobile.
-
----
-
-## ⚠️ Observações
-
-Este projeto foi desenvolvido para fins acadêmicos e de aprendizagem.
-
-As credenciais presentes na conexão referem-se a um ambiente local utilizado durante o desenvolvimento. O projeto não oferece acesso a banco de dados remoto.
-
-Para executar a aplicação, cada pessoa deve instalar e configurar seu próprio MySQL, criar o banco e cadastrar seus próprios usuários.
-
-Não são utilizados dados reais de pessoas.
-
----
-
-## 👩‍💻 Autoria
-
-Projeto desenvolvido por:
-
-### Carolina Yukari Kague
-
-**Análise e Desenvolvimento de Sistemas (ADS)**  
-**2026**
-
-</div>
+User: "root"
+Password: "1234"

@@ -53,7 +53,7 @@ A tela também possui as opções:
 
 - **Limpar:** apaga os dados preenchidos nos campos;
 - **Fim:** encerra a aplicação;
-- **OK:** valida o login e abre o sistema.
+- **OK:** valida o login e abre o sistema[cite: 1].
 
 ---
 
@@ -61,19 +61,19 @@ A tela também possui as opções:
 
 ### Tela Menu
 
-A `TelaMenu` organiza o acesso às operações disponíveis no sistema por meio de uma barra de menus superior contendo as guias "Usuário" (Consultar, Incluir, Alterar, Excluir) e "..." (Sair).
+A `TelaMenu` organiza o acesso às operações disponíveis no sistema por meio de uma barra de menus superior contendo as guias "Usuário" (Consultar, Incluir, Alterar, Excluir) e "..." (Sair)[cite: 1].
 
 ### Cadastro de usuários
 
-A `TelaIncluir` permite inserir novos usuários no banco de dados. O formulário solicita **Nome Completo**, **E-mail**, **Telefone** e **Senha**. O sistema conta com validações que exigem a confirmação exata da senha e garantem que o telefone contenha apenas números, limitados a 11 dígitos. Após o cadastro bem-sucedido, o `UserID` é gerado de forma automática e exibido na tela para o usuário.
+A `TelaIncluir` permite inserir novos usuários no banco de dados[cite: 1]. O formulário solicita **Nome Completo**, **E-mail**, **Telefone** e **Senha**[cite: 1]. O sistema conta com validações que exigem a confirmação exata da senha e garantem que o telefone contenha apenas números, limitados a 11 dígitos[cite: 1]. Após o cadastro bem-sucedido, o `UserID` é gerado de forma automática e exibido na tela para o usuário[cite: 1].
 
 ### Consulta de usuários
 
-A `TelaConsultar` permite localizar as informações dos usuários cadastrados por meio de uma busca utilizando o `UserID`. Os dados retornados (Nome, E-mail, Telefone e Senha) são carregados automaticamente em campos bloqueados para edição.
+A `TelaConsultar` permite localizar as informações dos usuários cadastrados por meio de uma busca utilizando o `UserID`[cite: 1]. Os dados retornados (Nome, E-mail, Telefone e Senha) são carregados automaticamente em campos bloqueados para edição[cite: 1].
 
 ### Alteração de usuários
 
-A `TelaAlterar` busca o registro pelo `UserID` e habilita a modificação dos campos Nome, E-mail, Telefone e Senha. O campo de `UserID` possui um bloqueio de segurança estrutural, impedindo que o código identificador seja modificado[cite: 1]. O formulário também valida se o número de telefone possui apenas caracteres numéricos antes de autorizar a atualização no banco de dados[cite: 1].
+A `TelaAlterar` busca o registro pelo `UserID` e habilita a modificação dos campos Nome, E-mail, Telefone e Senha[cite: 1]. O campo de `UserID` possui um bloqueio de segurança estrutural, impedindo que o código identificador seja modificado[cite: 1]. O formulário também valida se o número de telefone possui apenas caracteres numéricos antes de autorizar a atualização no banco de dados[cite: 1].
 
 ### Exclusão de usuários
 

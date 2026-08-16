@@ -47,7 +47,7 @@ O sistema começa pela tela de login, na qual o usuário informa:
 - **UserID:** código de identificação cadastrado no banco;
 - **Senha:** senha correspondente ao usuário.
 
-Após clicar em **OK**, o sistema consulta a tabela `usuarios` no MySQL local. Quando os dados estão corretos, o acesso é liberado e o usuário é encaminhado para o menu principal.
+Após clicar em **OK**, o sistema consulta a tabela `usuarios` no MySQL local. Quando os dados estão corretos, o acesso é liberado e o usuário é encaminhado para a tela `TelaMenu`.
 
 A tela também possui as opções:
 
@@ -59,25 +59,25 @@ A tela também possui as opções:
 
 ## 🧩 Funcionalidades
 
-### Menu principal
+### Tela Menu
 
-O menu principal organiza o acesso às operações disponíveis no sistema.
+A `TelaMenu` organiza o acesso às operações disponíveis no sistema.
 
 ### Cadastro de usuários
 
-Permite inserir novos usuários no banco de dados, armazenando as informações necessárias para o acesso ao sistema.
+A `TelaIncluir` permite inserir novos usuários no banco de dados, armazenando as informações necessárias para o acesso ao sistema.
 
 ### Consulta de usuários
 
-Permite localizar e visualizar informações de usuários cadastrados.
+A `TelaConsultar` permite localizar e visualizar informações de usuários cadastrados.
 
 ### Alteração de usuários
 
-Permite modificar dados de um usuário existente.
+A `TelaAlterar` permite modificar dados de um usuário existente.
 
 ### Exclusão de usuários
 
-Permite remover um usuário cadastrado no banco de dados.
+A `TelaExcluir` permite remover um usuário cadastrado no banco de dados.
 
 ---
 
@@ -132,19 +132,19 @@ Os dados utilizados no desenvolvimento são fictícios e foram criados exclusiva
 ```text
 STO_E01/
 ├── src/
-│   ├── FrameLogin.java
-│   ├── FrameLogin.form
-│   ├── FrameMenu.java
-│   ├── FrameMenu.form
-│   ├── FrameIncluir.java
-│   ├── FrameIncluir.form
-│   ├── FrameConsultar.java
-│   ├── FrameConsultar.form
-│   ├── FrameAlterar.java
-│   ├── FrameAlterar.form
-│   ├── FrameExcluir.java
-│   ├── FrameExcluir.form
-│   └── imagens da interface
+│   ├── TelaLogin.java
+│   ├── TelaLogin.form
+│   ├── TelaMenu.java
+│   ├── TelaMenu.form
+│   ├── TelaIncluir.java
+│   ├── TelaIncluir.form
+│   ├── TelaConsultar.java
+│   ├── TelaConsultar.form
+│   ├── TelaAlterar.java
+│   ├── TelaAlterar.form
+│   ├── TelaExcluir.java
+│   ├── TelaExcluir.form
+│   └── imagens utilizadas na interface
 ├── nbproject/
 ├── build.xml
 ├── manifest.mf
@@ -152,7 +152,23 @@ STO_E01/
 └── README.md
 ```
 
-Os arquivos `.java` contêm a lógica das telas, enquanto os arquivos `.form` armazenam as informações visuais utilizadas pelo GUI Builder do NetBeans.
+As telas do sistema foram desenvolvidas como formulários `JFrame` no Apache NetBeans.
+
+Cada tela possui dois arquivos principais:
+
+- O arquivo `.java`, que contém a lógica e o código da tela;
+- O arquivo `.form`, que armazena as informações visuais utilizadas pelo GUI Builder do NetBeans.
+
+As telas principais do projeto são:
+
+- `TelaLogin`: autenticação do usuário;
+- `TelaMenu`: menu principal do sistema;
+- `TelaIncluir`: cadastro de usuários;
+- `TelaConsultar`: consulta de usuários;
+- `TelaAlterar`: alteração de usuários;
+- `TelaExcluir`: exclusão de usuários.
+
+A classe `TelaLogin.java` também contém o método `main`, responsável por iniciar a aplicação.
 
 ---
 
@@ -173,7 +189,7 @@ git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
 
 9. Abra o projeto `STO_E01` no NetBeans.
 10. Verifique as configurações da conexão com o MySQL.
-11. Execute a classe `FrameLogin`.
+11. Execute a classe `TelaLogin`.
 12. Informe o código e a senha de um usuário cadastrado no seu banco local.
 
 ---

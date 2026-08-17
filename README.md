@@ -269,11 +269,11 @@ Não são utilizados dados reais de pessoas.
 
 ## 👩‍💻 Autoria
 
-Projeto desenvolvido por:
+Projeto desenvolvido com muita dedicação por:
 
 ### Carolina Yukari Kague
 
-**Análise e Desenvolvimento de Sistemas (ADS)**  
+**Universidade São Judas Tadeu**  
 **2026**
 
 </div>
